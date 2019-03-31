@@ -48,6 +48,7 @@ class Generator:
                 proc_75 = 0.0
 
             x = np.random.randint(0, 100, size=self.array_size, dtype=np.uint32)
+            #print(x)
             file.write(x)
 
         print("Time spent in (Generator->generate) is: ", time.clock() - start)
@@ -64,7 +65,7 @@ class Generator:
     def __convert_file_size(file_size: str):
         if 'GB' in file_size:
             file_size = int(file_size.replace('GB', ''))
-            file_size = str(int(file_size) * 275) + 'MB'
+            file_size = str(int(file_size) * 255) + 'MB'
 
         if 'MB' in file_size:
             file_size = int(file_size.replace('MB', ''))
