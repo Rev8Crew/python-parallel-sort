@@ -7,25 +7,31 @@ from app.helper import Helper
 parser = ArgParser()
 helper = Helper(parser)
 
-# Никаких аргументов не пришло
-if helper.is_empty_argv():
-    exit(helper.print_help())
 
-#флаг g
-if helper.is_generate():
-    size = helper.is_generate()
-    Generator(file_size=size, array_size=1000).generate()
+if __name__ == '__main__':
+    # Никаких аргументов не пришло
+    if helper.is_empty_argv():
+        exit(helper.print_help())
 
-#флаг -print
-if helper.is_printer():
-    fname = helper.is_printer()
-    Printer(file_name=fname, how_many=1000).print()
+    #флаг g
+    if helper.is_generate():
+        size = helper.is_generate()
+        Generator(file_size=size, array_size=1000).generate()
 
-# Флаг -memory
-# Default:1GB RAM
-memory = 1024 * 1024 * 1024
-if helper.is_memory():
-    memory = helper.is_memory()
+    #флаг -print
+    if helper.is_printer():
+        fname = helper.is_printer()
+        Printer(file_name=fname, how_many=1000).print()
 
-#do smth
+    # Флаг -memory
+    # Default:1MB RAM
+    memory = 1024 * 1024 * 1
+    if helper.is_memory():
+        memory = helper.is_memory()
+
+    file = 'data_temp'
+    if helper.is_file():
+        file = helper.is_file()
+
+
 
