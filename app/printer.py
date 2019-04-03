@@ -19,4 +19,9 @@ class Printer:
     def print(self):
         binary = self.is_binary()
         f = open(self.file_name, 'rb') if binary else open(self.file_name, 'r')
-        print(np.fromfile(f, dtype=np.uint32, count=self.how_many))
+        data = np.fromfile(f, dtype=np.uint32)
+        ff = open('log.txt', 'w')
+        for item in list(data):
+            ff.write( str(item) + '\n')
+
+Printer('tmpxk_u26f9').print()

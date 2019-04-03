@@ -47,7 +47,7 @@ class Generator:
                 print("Progres[75%] ->", time.clock() - start)
                 proc_75 = 0.0
 
-            x = np.random.randint(0, 100, size=self.array_size, dtype=np.uint32)
+            x = np.random.randint(1, 1000, size=self.array_size, dtype=np.uint32)
             #print(x)
             file.write(x)
 
